@@ -1,11 +1,12 @@
 <?php
+require_once "config/conexionDB.php";
 
-class Mprofesor {
+class ModProfesor {
 
     private $conexion;
 
-    public function __construct($conexion) {
-        $this->conexion = $conexion;
+    public function __construct() {
+        $this->conexion = new mysqli(SERVER, USER, PASS, DB);
     }
 
     // MÉTODOS DEL MODELO (solo SQL)

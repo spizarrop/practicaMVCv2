@@ -1,33 +1,36 @@
 <?php
-require_once "modelo/Mprofesor.php";
+require_once "config/routes.php";
+require_once "model/modProfesor.php";
 
-class Profesor {
+class ConProfesor {
 
     private $modelo;
+    public $vista;
 
-    public function __construct($conexion) {
-        $this->modelo = new Mprofesor($conexion);
+    public function __construct() {
+        $this->modelo = new ModProfesor();
     }
 
     public function listar() {
         $resultado = $this->modelo->obtenerTodos();
-        require "vista/listar.php";
+        $this->vista = "listar.php";
+        return $resultado;
     }
 
     public function modificar() {
         $idProfesor = $_GET['idProfesor'];
         $fila = $this->modelo->obtenerPorId($idProfesor);
         $nombre = $fila['nombre'];
-        require "vista/modificar.php";
+        $this->vista = "modificar.php";
+        return $nombre;
     }
 
     public function procesarModificar() {
         $idProfesor = $_GET['idProfesor'];
         $nuevoNombre = $_GET['nuevoNombre'];
-
         $this->modelo->actualizar($idProfesor, $nuevoNombre);
-
-        header("Location: procesoListar.php");
+        
+        header('Location: index.php');
         exit;
     }
 
@@ -35,14 +38,15 @@ class Profesor {
         $idProfesor = $_GET['idProfesor'];
         $fila = $this->modelo->obtenerPorId($idProfesor);
         $nombre = $fila['nombre'];
-        require "vista/eliminar.php";
+        $this->vista = "eliminar.php";
+        return $nombre;
     }
 
     public function procesarEliminar() {
         $idProfesor = $_GET['idProfesor'];
         $this->modelo->eliminar($idProfesor);
-
-        header("Location: procesoListar.php");
+        
+        header('Location: index.php');
         exit;
     }
 }

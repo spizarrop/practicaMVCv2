@@ -5,11 +5,12 @@
     <title>Modificar</title>
 </head>
 <body>
-    <form action="procesoModificar.php" method="GET">
-        <input type="hidden" name="accion" value="procesarModificar">
-        <label>Nombre:</label><br>
+    <form action="index.php" method="GET">
+        <input type='hidden' name='c' value='Profesor'>
+        <input type='hidden' name='m' value='procesarModificar'>
         <input type='hidden' name='idProfesor' value='<?= $_GET['idProfesor'] ?>'>
-        <input type='text' name='nuevoNombre' value='<?= $nombre ?>'>
+        <label>Nombre:</label><br>
+        <input type='text' name='nuevoNombre' value='<?= $datos ?>'>
         <button type='submit'>Aplicar</button>
     </form>
 </body>
