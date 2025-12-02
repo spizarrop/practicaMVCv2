@@ -8,9 +8,9 @@
     <form action="index.php" method="GET">
         <input type='hidden' name='c' value='Profesor'>
         <input type='hidden' name='m' value='procesarModificar'>
-        <input type='hidden' name='idProfesor' value='<?= $_GET['idProfesor'] ?>'>
+        <input type='hidden' name='idProfesor' value='<?= $datos['idProfesor'] ?>'>
         <label>Nombre:</label><br>
-        <input type='text' name='nuevoNombre' value='<?= $datos ?>'>
+        <input type='text' name='nuevoNombre' value='<?= $datos['nombre'] ?>'>
         <button type='submit'>Aplicar</button>
     </form>
 </body>

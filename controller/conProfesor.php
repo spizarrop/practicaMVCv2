@@ -13,16 +13,28 @@ class ConProfesor {
 
     public function listar() {
         $resultado = $this->modelo->obtenerTodos();
+        
+        while ($fila = $resultado->fetch_assoc()) {
+            $datos[] = $fila;
+        }
+
         $this->vista = "listar.php";
-        return $resultado;
+
+        return $datos;
     }
 
     public function modificar() {
         $idProfesor = $_GET['idProfesor'];
         $fila = $this->modelo->obtenerPorId($idProfesor);
-        $nombre = $fila['nombre'];
+
+        $datos = [
+            'idProfesor' => $fila['idProfesor'],
+            'nombre'     => $fila['nombre']
+        ];
+
         $this->vista = "modificar.php";
-        return $nombre;
+
+        return $datos;
     }
 
     public function procesarModificar() {
@@ -37,15 +49,39 @@ class ConProfesor {
     public function eliminar() {
         $idProfesor = $_GET['idProfesor'];
         $fila = $this->modelo->obtenerPorId($idProfesor);
-        $nombre = $fila['nombre'];
+
+        $datos = [
+            'idProfesor' => $fila['idProfesor'],
+            'nombre'     => $fila['nombre']
+        ];
+
         $this->vista = "eliminar.php";
-        return $nombre;
+
+        return $datos;
     }
 
     public function procesarEliminar() {
         $idProfesor = $_GET['idProfesor'];
         $this->modelo->eliminar($idProfesor);
         
+        header('Location: index.php');
+        exit;
+    }
+
+    public function alta() {
+        $datos = [
+            'nombre' => ''
+        ];
+
+        $this->vista = "alta.php";
+
+        return $datos;
+    }
+
+    public function procesarAlta() {
+        $nombre = $_GET['nombre'];
+        $this->modelo->insertar($nombre);
+
         header('Location: index.php');
         exit;
     }

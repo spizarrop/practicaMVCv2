@@ -2,15 +2,16 @@
 <html lang="es">
 <head>
     <meta charset="UTF-8">
-    <title>Eliminar</title>
+    <title>Alta Profesor</title>
 </head>
 <body>
     <form action="index.php" method="GET">
         <input type='hidden' name='c' value='Profesor'>
-        <input type='hidden' name='m' value='procesarEliminar'>
+        <input type='hidden' name='m' value='procesarAlta'>
         <input type='hidden' name='idProfesor' value='<?= $datos['idProfesor'] ?>'>
-        <label>¿Seguro que deseas eliminar a <?= $datos['nombre'] ?> de la lista de profesores?</label><br>
-        <button type='submit'>Eliminar</button>
+        <label>Nombre:</label><br>
+        <input type='text' name='nombre' value='<?= $datos['nombre'] ?>'>
+        <button type='submit'>Dar de alta</button>
     </form>
 </body>
 </html>

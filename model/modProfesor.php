@@ -34,5 +34,10 @@ class ModProfesor {
         $sql = "DELETE FROM profesores WHERE idProfesor = " . $idProfesor;
         return $this->conexion->query($sql);
     }
+
+    public function insertar($nombre) {
+        $sql = "INSERT INTO profesores (nombre) VALUES ('". $nombre ."')";
+        return $this->conexion->query($sql);
+    }
 }
 ?>
