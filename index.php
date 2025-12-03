@@ -7,10 +7,10 @@ $metodo = $_GET["m"] ?? DEFAULT_METODO;
 
 /* Creo la ruta del controlador */
 $rutaControlador = CONTROLADOR."con".$controlador.".php";
-$nombreControlador = "Con".$controlador;
 require_once $rutaControlador;
 
 /* Creo una instancia del controlador */
+$nombreControlador = "Con".$controlador;
 $objControlador = new $nombreControlador();
 
 /* Hago la llamada al método correspondiente y almaceno en $datos los necesario para la vista */
