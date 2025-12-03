@@ -1,6 +1,6 @@
 <?php
 require_once "config/routes.php";
-require_once MODEL."modProfesor.php";
+require_once MODELO."modProfesor.php";
 
 class ConProfesor {
 

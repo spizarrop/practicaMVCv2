@@ -32,8 +32,6 @@ class ModProfesor {
     }
 
     public function actualizar($datos) {
-        $idProfesor = $datos['idProfesor'];
-
         $sql = "UPDATE profesores SET 
                 nombre = '" . $datos['nombre'] . "'
                 WHERE idProfesor = " . $datos['idProfesor'];
