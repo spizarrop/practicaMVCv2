@@ -26,9 +26,7 @@ class ModProfesor {
         $sql = "SELECT * FROM profesores WHERE idProfesor = " . $idProfesor;
         $resultado = $this->conexion->query($sql);
 
-        while ($fila = $resultado->fetch_assoc()) {
-            $datos[] = $fila;
-        }
+        $datos = $resultado->fetch_assoc();
 
         return $datos;
     }
@@ -49,7 +47,7 @@ class ModProfesor {
 
     public function insertar($nombre) {
         $sql = "INSERT INTO profesores (nombre) VALUES ('". $nombre ."')";
-        
+
         return $this->conexion->query($sql);
     }
 }
