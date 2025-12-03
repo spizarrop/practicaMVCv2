@@ -26,5 +26,10 @@ include VISTAS.$objControlador->vista;
   - Ahora el resultado de la query se guarda en un array el cual se retorna
   - Ahora uso el fetch_assoc en el modelo en lugar de la vista 
 */
+/* Nuevos Cambios:
+  - Ahora los datos de los formularios se envian con POST
+  - Ahora el método de modificar recibe un array con todos los datos del formulario
+  - He añadido al archivo rutas la ruta del modelo
+ */
 ?>
 
