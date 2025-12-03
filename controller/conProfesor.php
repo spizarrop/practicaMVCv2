@@ -12,11 +12,7 @@ class ConProfesor {
     }
 
     public function listar() {
-        $resultado = $this->modelo->obtenerTodos();
-        
-        while ($fila = $resultado->fetch_assoc()) {
-            $datos[] = $fila;
-        }
+        $datos = $this->modelo->obtenerTodos();
 
         $this->vista = "listar.php";
 
@@ -25,12 +21,7 @@ class ConProfesor {
 
     public function modificar() {
         $idProfesor = $_GET['idProfesor'];
-        $fila = $this->modelo->obtenerPorId($idProfesor);
-
-        $datos = [
-            'idProfesor' => $fila['idProfesor'],
-            'nombre'     => $fila['nombre']
-        ];
+        $datos = $this->modelo->obtenerPorId($idProfesor);
 
         $this->vista = "modificar.php";
 
@@ -48,12 +39,7 @@ class ConProfesor {
 
     public function eliminar() {
         $idProfesor = $_GET['idProfesor'];
-        $fila = $this->modelo->obtenerPorId($idProfesor);
-
-        $datos = [
-            'idProfesor' => $fila['idProfesor'],
-            'nombre'     => $fila['nombre']
-        ];
+        $datos = $this->modelo->obtenerPorId($idProfesor);
 
         $this->vista = "eliminar.php";
 
@@ -69,9 +55,7 @@ class ConProfesor {
     }
 
     public function alta() {
-        $datos = [
-            'nombre' => ''
-        ];
+        $datos = ['nombre' => ''];
 
         $this->vista = "alta.php";
 

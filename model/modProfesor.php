@@ -13,13 +13,24 @@ class ModProfesor {
 
     public function obtenerTodos() {
         $sql = "SELECT * FROM profesores ORDER BY nombre";
-        return $this->conexion->query($sql);
+        $resultado = $this->conexion->query($sql);
+
+        while ($fila = $resultado->fetch_assoc()) {
+            $datos[] = $fila;
+        }
+        
+        return $datos;
     }
 
     public function obtenerPorId($idProfesor) {
         $sql = "SELECT * FROM profesores WHERE idProfesor = " . $idProfesor;
         $resultado = $this->conexion->query($sql);
-        return $resultado->fetch_assoc();
+
+        while ($fila = $resultado->fetch_assoc()) {
+            $datos[] = $fila;
+        }
+
+        return $datos;
     }
 
     public function actualizar($idProfesor, $nuevoNombre) {
@@ -32,11 +43,13 @@ class ModProfesor {
 
     public function eliminar($idProfesor) {
         $sql = "DELETE FROM profesores WHERE idProfesor = " . $idProfesor;
+
         return $this->conexion->query($sql);
     }
 
     public function insertar($nombre) {
         $sql = "INSERT INTO profesores (nombre) VALUES ('". $nombre ."')";
+        
         return $this->conexion->query($sql);
     }
 }
