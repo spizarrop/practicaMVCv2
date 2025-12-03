@@ -5,7 +5,7 @@
     <title>Alta Profesor</title>
 </head>
 <body>
-    <form action="index.php" method="GET">
+    <form action="index.php" method="POST">
         <input type='hidden' name='c' value='Profesor'>
         <input type='hidden' name='m' value='procesarAlta'>
         <input type='hidden' name='idProfesor' value='<?= $datos['idProfesor'] ?>'>

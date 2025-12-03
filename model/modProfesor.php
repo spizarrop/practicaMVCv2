@@ -31,10 +31,12 @@ class ModProfesor {
         return $datos;
     }
 
-    public function actualizar($idProfesor, $nuevoNombre) {
-        $sql = "UPDATE profesores
-                SET nombre = '" . $nuevoNombre . "'
-                WHERE idProfesor = " . $idProfesor;
+    public function actualizar($datos) {
+        $idProfesor = $datos['idProfesor'];
+
+        $sql = "UPDATE profesores SET 
+                nombre = '" . $datos['nombre'] . "'
+                WHERE idProfesor = " . $datos['idProfesor'];
 
         return $this->conexion->query($sql);
     }

@@ -1,6 +1,6 @@
 <?php
 require_once "config/routes.php";
-require_once "model/modProfesor.php";
+require_once MODEL."modProfesor.php";
 
 class ConProfesor {
 
@@ -29,10 +29,9 @@ class ConProfesor {
     }
 
     public function procesarModificar() {
-        $idProfesor = $_GET['idProfesor'];
-        $nuevoNombre = $_GET['nuevoNombre'];
-        $this->modelo->actualizar($idProfesor, $nuevoNombre);
-        
+        $datos = $_POST;
+        $this->modelo->actualizar($datos);
+
         header('Location: index.php');
         exit;
     }
@@ -47,7 +46,7 @@ class ConProfesor {
     }
 
     public function procesarEliminar() {
-        $idProfesor = $_GET['idProfesor'];
+        $idProfesor = $_POST['idProfesor'];
         $this->modelo->eliminar($idProfesor);
         
         header('Location: index.php');
@@ -63,7 +62,7 @@ class ConProfesor {
     }
 
     public function procesarAlta() {
-        $nombre = $_GET['nombre'];
+        $nombre = $_POST['nombre'];
         $this->modelo->insertar($nombre);
 
         header('Location: index.php');
