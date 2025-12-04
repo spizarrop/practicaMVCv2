@@ -2,8 +2,8 @@
 require_once "config/routes.php";
 
 /* Creo las variables controlador y metodo y las inicializo si no se reciben por URL */
-$controlador = $_GET["c"] ?? $_POST["c"] ?? DEFAULT_CONTROLADOR;
-$metodo = $_GET["m"] ?? $_POST["m"] ?? DEFAULT_METODO;
+$controlador = $_GET["c"] ?? DEFAULT_CONTROLADOR;
+$metodo = $_GET["m"] ?? DEFAULT_METODO;
 
 /* Creo la ruta del controlador */
 $rutaControlador = CONTROLADOR."con".$controlador.".php";
@@ -28,7 +28,7 @@ include VISTAS.$objControlador->vista;
 */
 /* Nuevos Cambios:
   - Ahora los datos de los formularios se envian con POST
-  - Ahora el método de modificar recibe un array con todos los datos del formulario
+  - Ahora el método de modificar recibe los datos del formulario mediante $_POST
   - He añadido al archivo rutas la ruta del modelo
  */
 ?>

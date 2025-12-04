@@ -29,8 +29,7 @@ class ConProfesor {
     }
 
     public function procesarModificar() {
-        $datos = $_POST;
-        $this->modelo->actualizar($datos);
+        $this->modelo->actualizar();
 
         header('Location: index.php');
         exit;

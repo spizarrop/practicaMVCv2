@@ -5,10 +5,7 @@
     <title>Eliminar</title>
 </head>
 <body>
-    <form action="index.php" method="POST">
-        <input type='hidden' name='c' value='Profesor'>
-        <input type='hidden' name='m' value='procesarEliminar'>
-        <input type='hidden' name='idProfesor' value='<?= $datos['idProfesor'] ?>'>
+    <form action="index.php?c=Profesor&m=procesarEliminar&idProfesor=<?= $datos['idProfesor'] ?>" method="POST">
         <label>¿Seguro que deseas eliminar a <?= $datos['nombre'] ?> de la lista de profesores?</label><br>
         <button type='submit'>Eliminar</button>
     </form>

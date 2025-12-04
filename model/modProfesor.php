@@ -22,8 +22,8 @@ class ModProfesor {
         return $datos;
     }
 
-    public function obtenerPorId($idProfesor) {
-        $sql = "SELECT * FROM profesores WHERE idProfesor = " . $idProfesor;
+    public function obtenerPorId() {
+        $sql = "SELECT * FROM profesores WHERE idProfesor = " . $_GET['idProfesor'];
         $resultado = $this->conexion->query($sql);
 
         $datos = $resultado->fetch_assoc();
@@ -31,22 +31,22 @@ class ModProfesor {
         return $datos;
     }
 
-    public function actualizar($datos) {
+    public function actualizar() {
         $sql = "UPDATE profesores SET 
-                nombre = '" . $datos['nombre'] . "'
-                WHERE idProfesor = " . $datos['idProfesor'];
+                nombre = '" . $_POST['nombre'] . "'
+                WHERE idProfesor = " . $_GET['idProfesor'];
 
         return $this->conexion->query($sql);
     }
 
     public function eliminar($idProfesor) {
-        $sql = "DELETE FROM profesores WHERE idProfesor = " . $idProfesor;
+        $sql = "DELETE FROM profesores WHERE idProfesor = " . $_GET['idProfesor'];
 
         return $this->conexion->query($sql);
     }
 
-    public function insertar($nombre) {
-        $sql = "INSERT INTO profesores (nombre) VALUES ('". $nombre ."')";
+    public function insertar() {
+        $sql = "INSERT INTO profesores (nombre) VALUES ('". $_POST['nombre'] ."')";
 
         return $this->conexion->query($sql);
     }

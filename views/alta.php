@@ -5,9 +5,7 @@
     <title>Alta Profesor</title>
 </head>
 <body>
-    <form action="index.php" method="POST">
-        <input type='hidden' name='c' value='Profesor'>
-        <input type='hidden' name='m' value='procesarAlta'>
+    <form action="index.php?c=Profesor&m=procesarAlta" method="POST">
         <label>Nombre:</label><br>
         <input type='text' name='nombre' value='<?= $datos['nombre'] ?>'>
         <button type='submit'>Dar de alta</button>
