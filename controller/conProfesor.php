@@ -20,8 +20,7 @@ class ConProfesor {
     }
 
     public function modificar() {
-        $idProfesor = $_GET['idProfesor'];
-        $datos = $this->modelo->obtenerPorId($idProfesor);
+        $datos = $this->modelo->obtenerPorId();
 
         $this->vista = "modificar.php";
 
@@ -36,8 +35,7 @@ class ConProfesor {
     }
 
     public function eliminar() {
-        $idProfesor = $_GET['idProfesor'];
-        $datos = $this->modelo->obtenerPorId($idProfesor);
+        $datos = $this->modelo->obtenerPorId();
 
         $this->vista = "eliminar.php";
 
@@ -45,24 +43,20 @@ class ConProfesor {
     }
 
     public function procesarEliminar() {
-        $idProfesor = $_POST['idProfesor'];
-        $this->modelo->eliminar($idProfesor);
+        $this->modelo->eliminar();
         
         header('Location: index.php');
         exit;
     }
 
     public function alta() {
-        $datos = ['nombre' => ''];
-
         $this->vista = "alta.php";
 
-        return $datos;
+        return true;
     }
 
     public function procesarAlta() {
-        $nombre = $_POST['nombre'];
-        $this->modelo->insertar($nombre);
+        $this->modelo->insertar();
 
         header('Location: index.php');
         exit;

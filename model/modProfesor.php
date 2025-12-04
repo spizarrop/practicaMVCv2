@@ -39,7 +39,7 @@ class ModProfesor {
         return $this->conexion->query($sql);
     }
 
-    public function eliminar($idProfesor) {
+    public function eliminar() {
         $sql = "DELETE FROM profesores WHERE idProfesor = " . $_GET['idProfesor'];
 
         return $this->conexion->query($sql);

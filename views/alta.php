@@ -7,7 +7,7 @@
 <body>
     <form action="index.php?c=Profesor&m=procesarAlta" method="POST">
         <label>Nombre:</label><br>
-        <input type='text' name='nombre' value='<?= $datos['nombre'] ?>'>
+        <input type='text' name='nombre'>
         <button type='submit'>Dar de alta</button>
     </form>
 </body>
